@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebTorrent Video Player</title>
+</head>
+<body>
+  <h2>🎬 WebTorrent Video Stream Test</h2>
+  
+  <input id="magnet" type="text" size="100" 
+         placeholder="Enter magnet link here" />
+  <button onclick="play()">Play</button>
+
+  <br><br>
+  <video id="player" width="640" height="360" controls></video>
+
+  <script>
+    function play() {
+      const magnet = document.getElementById("magnet").value;
+      const video = document.getElementById("player");
+
+      if (!magnet) {
+        alert("Please enter a magnet link!");
+        return;
+      }
+
+      // Pointing to your backend server
+      video.src = `http://localhost:4000/stream?magnet=${encodeURIComponent(magnet)}`;
+      video.load();
+      video.play();
+    }
+  </script>
+</body>
+</html>
