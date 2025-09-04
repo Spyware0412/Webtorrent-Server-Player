@@ -3,7 +3,7 @@ import cors from "cors";
 import WebTorrent from "webtorrent";
 
 const app = express();
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 
@@ -62,7 +62,7 @@ app.get("/stream", (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
