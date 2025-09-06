@@ -16,19 +16,19 @@
 
   <script>
     function play() {
-      const magnet = document.getElementById("magnet").value;
-      const video = document.getElementById("player");
+  const magnet = document.getElementById("magnet").value;
+  const video = document.getElementById("player");
 
-      if (!magnet) {
-        alert("Please enter a magnet link!");
-        return;
-      }
+  if (!magnet) {
+    alert("Please enter a magnet link!");
+    return;
+  }
 
-      // Pointing to your backend server
-      video.src = `http://localhost:4000/stream?magnet=${encodeURIComponent(magnet)}`;
-      video.load();
-      video.play();
-    }
+  // Updated to match the API route
+  video.src = `http://localhost:4000/api/stream?magnet=${encodeURIComponent(magnet)}`;
+  video.load();
+  video.play();
+}
   </script>
 </body>
 </html>
